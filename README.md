@@ -1,4 +1,4 @@
-# Jain-FDP
+# School website Project
  
 ## Problem Statement - 1
 
