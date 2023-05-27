@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spring Flowers School Student Portal</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+      integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/script.js"></script>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <img
+            class="img-thumbnail logo"
+            src="/assets/logo.png"
+            alt="Spring Flowers School"
+            style="height: 100px"
+          />
+          <button
+            class="navbar-toggler bg-light"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="true"
+            aria-label="Toggle navigation"
+            type="button"
+          >
+            <i class="fas fa-align-justify"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./timetable.html"
+                  >Time Table</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./exam_result.html"
+                  >Exam Result</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./extra_activity.html"
+                  >Extra Activity</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./student_profile.html"
+                  >Student Profile</a
+                >
+              </li>
+            </ul>
+            <ul class="ps-0">
+              <div class="dropdown">
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                ></button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <a class="dropdown-item" href="#" onclick="logout()"
+                      >Logout</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <div class="accordion">
+        <div class="accordion-body center">
+          <h1>Welcome to Spring Flowers School</h1>
+        </div>
+        <img
+          src="/assets/school.jpg"
+          class="img-fluid"
+          alt="Spring Flower school"
+        />
+        <div class="accordion-body">
+          <p>
+            At Spring Flowers, we believe in nurturing each student's unique
+            talents and abilities through personalized learning and a supportive
+            environment. Our experienced and dedicated faculty members work
+            closely with students to create engaging and challenging learning
+            experiences that prepare them for success in the 21st century.
+          </p>
+          <p>
+            We offer a wide range of academic and extracurricular programs that
+            cater to diverse interests and learning styles. From our
+            comprehensive core curriculum to our cutting-edge technology and
+            arts programs, we provide students with the tools and resources they
+            need to thrive.
+          </p>
+          <p>
+            At Spring Flowers, we also value character development and community
+            service, and encourage our students to be responsible and
+            compassionate members of society. Our school community is one that
+            fosters a love of learning, a commitment to excellence, and a spirit
+            of collaboration and respect.
+          </p>
+          <p>
+            We invite you to explore our website and learn more about the Spring
+            Flowers experience. Join us as we embark on a journey of growth,
+            discovery, and achievement together.
+          </p>
+        </div>
+        <div class="accordion-body center">
+          <h1>Extra Activities</h1>
+        </div>
+        <table id="activitiesTable" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Activity Name</th>
+              <th>Description</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Activity rows will be dynamically added here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+      <div class="copyright text-center wow zoomIn">
+        <p>© 2023 Pradeep Kumar</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+html {
+  font-family: arial;
+}
+/* style="background-color: #0094ff" */
+.navbar {
+  background-color: #0094ff;
+}
+
+.nav-link {
+  color: white;
+}
+.center {
+  text-align: center;
+}
+
+td {
+  border: 1px solid #726e6d;
+  padding: 15px;
+}
+
+thead {
+  font-weight: bold;
+  text-align: center;
+  background: #0094ff;
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.footer {
+  text-align: right;
+  font-weight: bold;
+}
