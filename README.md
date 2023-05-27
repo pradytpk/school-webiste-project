@@ -44,3 +44,29 @@ As a student, I should be able to enter the extra activities I have done for the
 
 Please use HTML 5 and CSS 3 concepts.
 Use JavaScript for Onclick activities.
+
+## Pages developed
+
+### Login 
+
+![Login](./assets/git-images/login.jpg)
+
+### Home 
+
+![Home](./assets/git-images/home.png)
+
+### Timetable 
+
+![timetable](./assets/git-images/timetable.png)
+
+### Result 
+
+![result](./assets/git-images/result.png)
+
+### Activity
+
+![activity](./assets/git-images/activity.png)
+
+### Profile
+
+![Profile](./assets/git-images/profile.png)
