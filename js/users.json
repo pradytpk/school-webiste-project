@@ -1,0 +1,132 @@
+{
+  "users": [
+    {
+      "username": "student1",
+      "password": "password1",
+      "grade": "A",
+      "profile": {
+        "name": "Kenneth Valdez",
+        "email": "kennethvaldez@example.com",
+        "phone": "(111) 111-1111",
+        "mobile": "(222) 222-2222",
+        "address": "123 Main St, Anytown, USA",
+        "fatherFullName": "Michael Valdez",
+        "fatherEmail": "michaelvaldez@example.com",
+        "fatherPhone": "(333) 333-3333",
+        "fatherMobile": "(444) 444-4444",
+        "fatherAddress": "456 Elm St, Anytown, USA"
+      },
+      "examResults": {
+        "Maths": {
+          "grade": "D",
+          "marks": 60
+        },
+        "Science": {
+          "grade": "A",
+          "marks": 90
+        },
+        "Algebra": {
+          "grade": "B",
+          "marks": 80
+        },
+        "Art": {
+          "grade": "C",
+          "marks": 70
+        },
+        "English": {
+          "grade": "C",
+          "marks": 70
+        },
+        "Total": {
+          "grade": "A",
+          "marks": "370/500"
+        }
+      }
+    },
+    {
+      "username": "student2",
+      "password": "password2",
+      "grade": "B",
+      "profile": {
+        "name": "John Smith",
+        "email": "johnsmith@example.com",
+        "phone": "(123) 456-7890",
+        "mobile": "(987) 654-3210",
+        "address": "789 Oak St, Cityville, USA",
+        "fatherFullName": "Michael Smith",
+        "fatherEmail": "michaelsmith@example.com",
+        "fatherPhone": "(111) 222-3333",
+        "fatherMobile": "(444) 555-6666",
+        "fatherAddress": "456 Elm St, Anytown, USA"
+      },
+      "examResults": {
+        "Maths": {
+          "grade": "B",
+          "marks": 80
+        },
+        "Science": {
+          "grade": "A",
+          "marks": 90
+        },
+        "Algebra": {
+          "grade": "C",
+          "marks": 70
+        },
+        "Art": {
+          "grade": "C",
+          "marks": 70
+        },
+        "English": {
+          "grade": "B",
+          "marks": 80
+        },
+        "Total": {
+          "grade": "B",
+          "marks": "390/500"
+        }
+      }
+    },
+    {
+      "username": "student3",
+      "password": "password3",
+      "grade": "C",
+      "profile": {
+        "name": "Jane Doe",
+        "email": "janedoe@example.com",
+        "phone": "(555) 123-4567",
+        "mobile": "(777) 888-9999",
+        "address": "321 Elm St, Springfield, USA",
+        "fatherFullName": "John Doe",
+        "fatherEmail": "johndoe@example.com",
+        "fatherPhone": "(999) 888-7777",
+        "fatherMobile": "(666) 555-4444",
+        "fatherAddress": "789 Oak St, Cityville, USA"
+      },
+      "examResults": {
+        "Maths": {
+          "grade": "C",
+          "marks": 70
+        },
+        "Science": {
+          "grade": "B",
+          "marks": 80
+        },
+        "Algebra": {
+          "grade": "D",
+          "marks": 60
+        },
+        "Art": {
+          "grade": "C",
+          "marks": 70
+        },
+        "English": {
+          "grade": "A",
+          "marks": 90
+        },
+        "Total": {
+          "marks": "370/500"
+        }
+      }
+    }
+  ]
+}

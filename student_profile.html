@@ -10,6 +10,47 @@
     />
     <link rel="stylesheet" href="/css/style.css" />
     <script src="./js/script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Load the exam results data
+      fetch('./js/users.json')
+        .then((response) => response.json())
+        .then((data) => {
+          // Get the username from localstorage
+          var username = localStorage.getItem('studentName');
+
+          // Find the user with matching username
+          var user = data.users.find((u) => u.username === username);
+
+          if (user && user.profile) {
+            // Display the profile
+
+            document.getElementById('fullName').textContent = user.profile.name;
+            document.getElementById('email').textContent = user.profile.email;
+            document.getElementById('phone').textContent = user.profile.phone;
+            document.getElementById('mobile').textContent = user.profile.mobile;
+            document.getElementById('address').textContent =
+              user.profile.address;
+            document.getElementById('fatherFullName').textContent =
+              user.profile.fatherFullName;
+            document.getElementById('fatherEmail').textContent =
+              user.profile.fatherEmail;
+            document.getElementById('fatherPhone').textContent =
+              user.profile.fatherPhone;
+            document.getElementById('fatherMobile').textContent =
+              user.profile.fatherMobile;
+            document.getElementById('fatherAddress').textContent =
+              user.profile.fatherAddress;
+          }
+        })
+        .catch((error) => {
+          console.log('Error loading user data:', error);
+        });
+    </script>
   </head>
   <body>
     <header>
@@ -29,7 +70,6 @@
             aria-controls="navbarNav"
             aria-expanded="true"
             aria-label="Toggle navigation"
-            type="button"
           >
             <i class="fas fa-align-justify"></i>
           </button>
@@ -114,43 +154,38 @@
                         <div class="col-sm-3">
                           <h6 class="mb-0">Full Name</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">
-                          Kenneth Valdez
-                        </div>
+                        <div
+                          class="col-sm-9 text-secondary"
+                          id="fullName"
+                        ></div>
                       </div>
                       <hr />
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Email</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">fip@jukmuh.al</div>
+                        <div class="col-sm-9 text-secondary" id="email"></div>
                       </div>
                       <hr />
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Phone</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">
-                          (239) 816-9029
-                        </div>
+                        <div class="col-sm-9 text-secondary" id="phone"></div>
                       </div>
                       <hr />
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Mobile</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">
-                          (320) 380-4539
-                        </div>
+                        <div class="col-sm-9 text-secondary" id="mobile"></div>
                       </div>
                       <hr />
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Address</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">
-                          Bay Area, San Francisco, CA
-                        </div>
+                        <div class="col-sm-9 text-secondary" id="address"></div>
                       </div>
                       <hr />
                     </div>
@@ -167,43 +202,50 @@
                         <div class="col-sm-3">
                           <h6 class="mb-0">Father Full Name</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">
-                          Kenneth Valdez
-                        </div>
+                        <div
+                          class="col-sm-9 text-secondary"
+                          id="fatherFullName"
+                        ></div>
                       </div>
                       <hr />
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Email</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">fip@jukmuh.al</div>
+                        <div
+                          class="col-sm-9 text-secondary"
+                          id="fatherEmail"
+                        ></div>
                       </div>
                       <hr />
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Phone</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">
-                          (239) 816-9029
-                        </div>
+                        <div
+                          class="col-sm-9 text-secondary"
+                          id="fatherPhone"
+                        ></div>
                       </div>
                       <hr />
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Mobile</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">
-                          (320) 380-4539
-                        </div>
+                        <div
+                          class="col-sm-9 text-secondary"
+                          id="fatherMobile"
+                        ></div>
                       </div>
                       <hr />
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Address</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">
-                          Bay Area, San Francisco, CA
-                        </div>
+                        <div
+                          class="col-sm-9 text-secondary"
+                          id="fatherAddress"
+                        ></div>
                       </div>
                       <hr />
                     </div>
@@ -220,10 +262,5 @@
         <p>© 2023 Pradeep Kumar</p>
       </div>
     </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>

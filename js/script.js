@@ -4,20 +4,46 @@ function login(event) {
   var username = document.getElementById('username').value;
   var password = document.getElementById('password').value;
 
-  // Validate the username and password (example validation)
-  if (username === 'student' && password === 'password') {
-    localStorage.setItem('loggedIn', 'true');
-    localStorage.setItem('studentName', 'Pradeep'); // Set the actual student name
-    window.location.href = 'index.html'; // Redirect to the welcome page
-  } else {
-    alert('Invalid username or password');
-  }
+  fetch('/js/users.json')
+    .then((response) => response.json())
+    .then((data) => {
+      var users = data.users;
+
+      // Find the user with matching credentials
+      var user = users.find(
+        (u) => u.username === username && u.password === password
+      );
+
+      if (user) {
+        // Store the username and grade in session storage
+        localStorage.setItem('loggedIn', 'true');
+        localStorage.setItem('studentName', username); // Set the actual student name
+        window.location.href = 'index.html'; // Redirect to the welcome page
+
+        localStorage.setItem('fullName', user.profile.name);
+        localStorage.setItem('email', user.profile.email);
+        localStorage.setItem('phone', user.profile.phone);
+        localStorage.setItem('mobile', user.profile.mobile);
+        localStorage.setItem('address', user.profile.address);
+        localStorage.setItem('fatherFullName', user.profile.fatherFullName);
+        localStorage.setItem('fatherEmail', user.profile.fatherEmail);
+        localStorage.setItem('fatherPhone', user.profile.fatherPhone);
+        localStorage.setItem('fatherMobile', user.profile.fatherMobile);
+        localStorage.setItem('fatherAddress', user.profile.fatherAddress);
+      } else {
+        // Display an error message
+        return alert('Invalid username or password');
+      }
+    });
 }
 
 function logout() {
   localStorage.removeItem('loggedIn');
   localStorage.removeItem('studentName');
+
   window.location.href = 'login.html'; // Redirect to the login page
+
+  localStorage.removeItem('activities');
 }
 
 function checkLoginStatus() {
@@ -25,8 +51,6 @@ function checkLoginStatus() {
     var studentName = localStorage.getItem('studentName');
     var button = document.getElementById('dropdownMenuButton1');
     button.innerHTML = studentName;
-    console.log(button.innerHTML);
-    return studentName;
   } else {
     return (window.location.href = 'login.html'); // Redirect to the login page if not logged in
   }
@@ -47,7 +71,7 @@ function checkPermission() {
       localStorage.getItem('loggedIn') == null
     ) {
       if (currentPage !== '/login.html') {
-        window.location.href = 'login.html'; // Redirect to the login page if not logged in
+        return (window.location.href = 'login.html'); // Redirect to the login page if not logged in
       }
     }
   }
@@ -61,9 +85,9 @@ window.onload = function () {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-  document
-    .getElementById('activityForm')
-    .addEventListener('submit', function (event) {
+  var element = document.getElementById('activityForm');
+  if (element) {
+    element.addEventListener('submit', function (event) {
       event.preventDefault(); // Prevent default form submission behavior
 
       // Retrieve form values
@@ -93,25 +117,35 @@ document.addEventListener('DOMContentLoaded', function () {
       // Redirect back to the welcome page
       window.location.href = 'index.html';
     });
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  var activitiesTableBody = document
-    .getElementById('activitiesTable')
-    .getElementsByTagName('tbody')[0];
+  var activitiesTable = document.getElementById('activitiesTable');
+
+  if (activitiesTable) {
+    var tableBody = activitiesTable.getElementsByTagName('tbody')[0];
+    // Perform operations on the table body if it exists
+  }
 
   var storedActivities = JSON.parse(localStorage.getItem('activities')) || [];
-
-  storedActivities.forEach(function (activity) {
-    var row = document.createElement('tr');
-    row.innerHTML =
-      '<td>' +
-      activity.name +
-      '</td><td>' +
-      activity.description +
-      '</td><td>' +
-      activity.date +
-      '</td>';
-    activitiesTableBody.appendChild(row);
-  });
+  if (storedActivities.length > 0) {
+    storedActivities.forEach(function (activity) {
+      var row = document.createElement('tr');
+      row.innerHTML =
+        '<td>' +
+        activity.name +
+        '</td><td>' +
+        activity.description +
+        '</td><td>' +
+        activity.date +
+        '</td>';
+      tableBody.appendChild(row);
+    });
+  } else {
+    var element = document.getElementById('extraActivity');
+    if (element) {
+      element.style.display = 'none';
+    }
+  }
 });

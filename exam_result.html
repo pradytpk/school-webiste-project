@@ -10,6 +10,47 @@
     />
     <link rel="stylesheet" href="/css/exam_result.css" />
     <script src="./js/script.js"></script>
+    <script>
+      // Load the exam results data
+      fetch('./js/users.json')
+        .then((response) => response.json())
+        .then((data) => {
+          // Get the username from localstorage
+          var username = localStorage.getItem('studentName');
+
+          // Find the user with matching username
+          var user = data.users.find((u) => u.username === username);
+
+          if (user && user.examResults) {
+            // Display the exam results
+            document.getElementById('mathsGrade').textContent =
+              user.examResults.Maths.grade;
+            document.getElementById('mathsMarks').textContent =
+              user.examResults.Maths.marks.toString();
+            document.getElementById('scienceGrade').textContent =
+              user.examResults.Science.grade;
+            document.getElementById('scienceMarks').textContent =
+              user.examResults.Science.marks.toString();
+            document.getElementById('algebraGrade').textContent =
+              user.examResults.Algebra.grade;
+            document.getElementById('algebraMarks').textContent =
+              user.examResults.Algebra.marks.toString();
+            document.getElementById('artGrade').textContent =
+              user.examResults.Art.grade;
+            document.getElementById('artMarks').textContent =
+              user.examResults.Art.marks.toString();
+            document.getElementById('englishGrade').textContent =
+              user.examResults.English.grade;
+            document.getElementById('englishMarks').textContent =
+              user.examResults.English.marks.toString();
+            document.getElementById('totalMarks').textContent =
+              user.examResults.Total.marks;
+          }
+        })
+        .catch((error) => {
+          console.log('Error loading user data:', error);
+        });
+    </script>
   </head>
   <body>
     <header>
@@ -115,34 +156,34 @@
             <tbody>
               <tr>
                 <td>Maths</td>
-                <td colspan="2">D</td>
-                <td>60</td>
+                <td colspan="2" id="mathsGrade"></td>
+                <td id="mathsMarks"></td>
               </tr>
               <tr>
                 <td>Science</td>
-                <td colspan="2">A</td>
-                <td>90</td>
+                <td id="scienceGrade" colspan="2"></td>
+                <td id="scienceMarks"></td>
               </tr>
               <tr>
                 <td>Algebra</td>
-                <td colspan="2">B</td>
-                <td>80</td>
+                <td id="algebraGrade" colspan="2"></td>
+                <td id="algebraMarks"></td>
               </tr>
               <tr>
                 <td>Art</td>
-                <td colspan="2">C</td>
-                <td>70</td>
+                <td id="artGrade" colspan="2"></td>
+                <td id="artMarks"></td>
               </tr>
               <tr>
                 <td>English</td>
-                <td colspan="2">C</td>
-                <td>70</td>
+                <td id="englishGrade" colspan="2"></td>
+                <td id="englishMarks"></td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
                 <td colspan="3" class="footer">Total</td>
-                <td>370/500</td>
+                <td id="totalMarks"></td>
               </tr>
             </tfoot>
           </table>
